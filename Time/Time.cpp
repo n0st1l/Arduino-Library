@@ -11,17 +11,17 @@
 #define MINUTES_TO_SECONDS(x)	((x) * 60)
 
 
-Time::Time() {
-	this->hour = 0;
-	this->minutes = 0;
-	this->seconds = 0;
-}
+Time::Time()
+: hour(0),
+  minutes(0),
+  seconds(0)
+{}
 
-Time::Time(unsigned int hour, unsigned int minutes, unsigned int seconds) {
-	this->hour = hour;
-	this->minutes = minutes;
-	this->seconds = seconds;
-}
+Time::Time(unsigned int p_hour, unsigned int p_minutes, unsigned int p_seconds)
+: hour(p_hour),
+  minutes(p_minutes),
+  seconds(p_seconds)
+{}
 
 Time::~Time() {
 	// TODO Auto-generated destructor stub
@@ -49,27 +49,39 @@ bool Time::setTime(unsigned int hour, unsigned int minutes,
 
 
 bool Time::setHour(unsigned int hour) {
-	if(this->isUIntInRange(hour, 0, 23)) {
-		this->hour = hour;
+	Time tempTime(hour, this->getMinutes(), this->getSeconds());
+	if( tempTime.isValid() == false ) {
+		return false;
+	}
+	else
+	{
+		this->setValuesFrom(&tempTime);
 		return true;
 	}
-	return false;
 }
 
 bool Time::setMinutes(unsigned int minutes) {
-	if(this->isUIntInRange(minutes, 0, 59)) {
-		this->minutes = minutes;
+	Time tempTime(this->getHour(), minutes, this->getSeconds());
+	if( tempTime.isValid() == false ) {
+		return false;
+	}
+	else
+	{
+		this->setValuesFrom(&tempTime);
 		return true;
 	}
-	return false;
 }
 
 bool Time::setSeconds(unsigned int seconds) {
-	if(this->isUIntInRange(seconds, 0, 59)) {
-	this->seconds = seconds;
-	return true;
+	Time tempTime(this->getHour(), this->getMinutes(), seconds);
+	if( tempTime.isValid() == false ) {
+		return false;
 	}
-	return false;
+	else
+	{
+		this->setValuesFrom(&tempTime);
+		return true;
+	}
 }
 
 bool Time::isValid() {
@@ -129,12 +141,4 @@ String Time::getSecondsString() {
 		tempString = "0";
 	}
 	return (tempString + String(this->seconds));
-}
-
-bool Time::isUIntInRange(unsigned int value, unsigned int min, unsigned int max) {
-
-	if( ((value) >= (min)) && ((value) <= (max)) )
-		return true;
-	else
-		return false;
 }

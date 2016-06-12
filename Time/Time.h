@@ -61,8 +61,6 @@ private:
 	unsigned int hour;
 	unsigned int minutes;
 	unsigned int seconds;
-
-	bool isUIntInRange(unsigned int value, unsigned int min, unsigned int max);
 };
 
 

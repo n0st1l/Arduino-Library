@@ -7,17 +7,17 @@
 
 #include "Date.h"
 
-Date::Date() {
-	this->year = 2000;
-	this->month = 1;
-	this->day = 1;
-}
+Date::Date()
+: year(2000),
+  month(1),
+  day(1)
+{}
 
-Date::Date(unsigned int year, unsigned int month, unsigned int day) {
-	this->year = year;
-	this->month = month;
-	this->day = day;
-}
+Date::Date(unsigned int p_year, unsigned int p_month, unsigned int p_day)
+: year(p_year),
+  month(p_month),
+  day(p_day)
+{}
 
 Date::~Date() {
 	// TODO Auto-generated destructor stub

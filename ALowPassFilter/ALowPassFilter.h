@@ -10,7 +10,7 @@
 
 class ALowPassFilter {
 public:
-	ALowPassFilter(float beta);
+	ALowPassFilter(float beta, float initValue = 0);
 	virtual ~ALowPassFilter();
 
 	void addNewData(float newData);

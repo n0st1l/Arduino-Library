@@ -7,9 +7,9 @@
 
 #include "ALowPassFilter.h"
 
-ALowPassFilter::ALowPassFilter(float beta) {
+ALowPassFilter::ALowPassFilter(float beta, float initValue) {
 	// TODO Auto-generated constructor stub
-	this->processedData = 0;
+	this->processedData = initValue;
 	this->beta = 0;
 	this->setBeta(beta);
 }

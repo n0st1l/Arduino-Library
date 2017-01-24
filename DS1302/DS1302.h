@@ -29,8 +29,8 @@ SUCH DAMAGE.
 #define DS1302_H_
 
 #include "Arduino.h"
-#include "Time.h"
-#include "Date.h"
+#include "../Time/Time.h"
+#include "../Date/Date.h"
 
 /**
  * Convenience register constants.

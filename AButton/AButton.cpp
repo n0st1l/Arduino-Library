@@ -4,8 +4,7 @@
 // MIT License
 
 #include <Arduino.h>
-#include <ATimer.h>  // https://github.com/alextaujenis/RBD_Timer
-#include <AButton.h> // https://github.com/alextaujenis/RBD_Button
+#include "AButton.h" // https://github.com/alextaujenis/RBD_Button
 
 
 // input pullup enabled by default

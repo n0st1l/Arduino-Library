@@ -7,7 +7,7 @@
 #define ABUTTON_H
 
 #include <Arduino.h>
-#include <ATimer.h>  // https://github.com/alextaujenis/RBD_Timer
+#include "../ATimer/ATimer.h"  // https://github.com/alextaujenis/RBD_Timer
 
   class AButton {
     public:

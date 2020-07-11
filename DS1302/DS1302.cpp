@@ -13,8 +13,8 @@ DS1302::DS1302(uint8_t ce_pin, uint8_t io_pin, uint8_t sclk_pin)
 	_ce_pin = ce_pin;
 	_io_pin = io_pin;
 	_sclk_pin = sclk_pin;
-	_time = new Time();
-	_date = new Date();
+	_time = new ATime();
+	_date = new ADate();
 
 	pinMode(ce_pin, OUTPUT);
 	pinMode(sclk_pin, OUTPUT);
@@ -179,7 +179,7 @@ uint16_t DS1302::year()
 }
 
 
-Time* DS1302::time()
+ATime* DS1302::time()
 {
 	_time->setHour(this->hour());
 	_time->setMinutes(this->minutes());
@@ -188,7 +188,7 @@ Time* DS1302::time()
 	return _time;
 }
 
-Date* DS1302::date()
+ADate* DS1302::date()
 {
 	_date->setYear(this->year());
 	_date->setMonth(this->month());
@@ -238,14 +238,14 @@ void DS1302::year(uint16_t yr)
 }
 
 
-void DS1302::time(Time t)
+void DS1302::time(ATime t)
 {
 	this->seconds(t.getSeconds());
 	this->minutes(t.getMinutes());
 	this->hour(t.getHour());
 }
 
-void DS1302::date(Date d)
+void DS1302::date(ADate d)
 {
 	this->day(d.getDay());
 	this->month(d.getMonth());

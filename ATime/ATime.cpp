@@ -1,42 +1,42 @@
 /*
- * Time.cpp
+ * ATime.cpp
  *
  *  Created on: 13.07.2015
  *      Author: Administrator
  */
 
-#include "Time.h"
+#include "ATime.h"
 
 #define HOURS_TO_SECONDS(x)		((x) * 3600)
 #define MINUTES_TO_SECONDS(x)	((x) * 60)
 
 
-Time::Time()
+ATime::ATime()
 : hour(0),
   minutes(0),
   seconds(0)
 {}
 
-Time::Time(unsigned int p_hour, unsigned int p_minutes, unsigned int p_seconds)
+ATime::ATime(unsigned int p_hour, unsigned int p_minutes, unsigned int p_seconds)
 : hour(p_hour),
   minutes(p_minutes),
   seconds(p_seconds)
 {}
 
-Time::~Time() {
+ATime::~ATime() {
 	// TODO Auto-generated destructor stub
 }
 
-void Time::setValuesFrom(Time* time) {
+void ATime::setValuesFrom(ATime* time) {
 	this->hour = time->getHour();
 	this->minutes = time->getMinutes();
 	this->seconds = time->getSeconds();
 }
 
 
-bool Time::setTime(unsigned int hour, unsigned int minutes,
+bool ATime::setTime(unsigned int hour, unsigned int minutes,
 		unsigned int seconds) {
-	Time tempTime(hour, minutes, seconds);
+	ATime tempTime(hour, minutes, seconds);
 	if( tempTime.isValid() == false ) {
 		return false;
 	}
@@ -48,8 +48,8 @@ bool Time::setTime(unsigned int hour, unsigned int minutes,
 }
 
 
-bool Time::setHour(unsigned int hour) {
-	Time tempTime(hour, this->getMinutes(), this->getSeconds());
+bool ATime::setHour(unsigned int hour) {
+	ATime tempTime(hour, this->getMinutes(), this->getSeconds());
 	if( tempTime.isValid() == false ) {
 		return false;
 	}
@@ -60,8 +60,8 @@ bool Time::setHour(unsigned int hour) {
 	}
 }
 
-bool Time::setMinutes(unsigned int minutes) {
-	Time tempTime(this->getHour(), minutes, this->getSeconds());
+bool ATime::setMinutes(unsigned int minutes) {
+	ATime tempTime(this->getHour(), minutes, this->getSeconds());
 	if( tempTime.isValid() == false ) {
 		return false;
 	}
@@ -72,8 +72,8 @@ bool Time::setMinutes(unsigned int minutes) {
 	}
 }
 
-bool Time::setSeconds(unsigned int seconds) {
-	Time tempTime(this->getHour(), this->getMinutes(), seconds);
+bool ATime::setSeconds(unsigned int seconds) {
+	ATime tempTime(this->getHour(), this->getMinutes(), seconds);
 	if( tempTime.isValid() == false ) {
 		return false;
 	}
@@ -84,7 +84,7 @@ bool Time::setSeconds(unsigned int seconds) {
 	}
 }
 
-bool Time::isValid() {
+bool ATime::isValid() {
 	if((this->hour < 0) || (this->hour > 23) ||
 			(this->minutes < 0) || (this->minutes > 59) ||
 			(this->seconds < 0) || (this->seconds > 59) ||
@@ -96,14 +96,14 @@ bool Time::isValid() {
 	}
 }
 
-long Time::secsTo(const Time *otherTime) const {
+long ATime::secsTo(const ATime *otherTime) const {
 	long thisSeconds = this->seconds + MINUTES_TO_SECONDS(this->minutes) + HOURS_TO_SECONDS((long)this->hour);
 	long otherSeconds = otherTime->seconds + MINUTES_TO_SECONDS(otherTime->minutes) + HOURS_TO_SECONDS((long)otherTime->hour);
 
 	return otherSeconds - thisSeconds;
 }
 
-String Time::getTimeString(String format) {
+String ATime::getTimeString(String format) {
 	String tempString;
 	if(format == "hh:mm")
 	{
@@ -116,7 +116,7 @@ String Time::getTimeString(String format) {
 	return tempString;
 }
 
-String Time::getHourString() {
+String ATime::getHourString() {
 	String tempString;
 	if(this->hour < 10)
 	{
@@ -125,7 +125,7 @@ String Time::getHourString() {
 	return (tempString + String(this->hour));
 }
 
-String Time::getMinutesString() {
+String ATime::getMinutesString() {
 	String tempString;
 	if(this->minutes < 10)
 	{
@@ -134,7 +134,7 @@ String Time::getMinutesString() {
 	return (tempString + String(this->minutes));
 }
 
-String Time::getSecondsString() {
+String ATime::getSecondsString() {
 	String tempString;
 	if(this->seconds < 10)
 	{

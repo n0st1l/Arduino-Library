@@ -29,8 +29,8 @@ SUCH DAMAGE.
 #define DS1302_H_
 
 #include "Arduino.h"
-#include "../Time/Time.h"
-#include "../Date/Date.h"
+#include "../ATime/ATime.h"
+#include "../ADate/ADate.h"
 
 /**
  * Convenience register constants.
@@ -117,7 +117,7 @@ public:
    * Returns:
    *   Time object.
    */
-  Time* time();
+  ATime* time();
 
   /**
    * Get the current date in a Date object.
@@ -125,7 +125,7 @@ public:
    * Returns:
    *   Date object.
    */
-  Date* date();
+  ADate* date();
 
   /**
    * Individually set pieces of the date and time.
@@ -145,7 +145,7 @@ public:
    * Args:
    *   t: Time object to use
    */
-  void time(Time t);
+  void time(ATime t);
 
   /**
    * Set the date to the instant specified in a given Date object.
@@ -153,14 +153,14 @@ public:
    * Args:
    *   d: Date object to use
    */
-  void date(Date d);
+  void date(ADate d);
 
 private:
   uint8_t _ce_pin;
   uint8_t _io_pin;
   uint8_t _sclk_pin;
-  Time* _time;
-  Date* _date;
+  ATime* _time;
+  ADate* _date;
 
   /**
    * Shift out a value to the IO pin.

@@ -1,23 +1,23 @@
 /*
- * Date.h
+ * ADate.h
  *
  *  Created on: 13.07.2015
  *      Author: Administrator
  */
 
-#ifndef LIBRARIES_DATE_H_
-#define LIBRARIES_DATE_H_
+#ifndef LIBRARIES_ADATE_H_
+#define LIBRARIES_ADATE_H_
 
 #include "WString.h"
 
 
-class Date {
+class ADate {
 public:
-	Date();
-	Date(unsigned int p_year, unsigned int p_month, unsigned int p_day);
-	virtual ~Date();
+	ADate();
+	ADate(unsigned int p_year, unsigned int p_month, unsigned int p_day);
+	virtual ~ADate();
 
-	void setValuesFrom(Date* date);
+	void setValuesFrom(ADate* date);
 
 	inline unsigned int getYear() { return year; }
 	void setYear(unsigned int year);
@@ -34,7 +34,7 @@ public:
 	String getDayString();
 
 	/*Operators*/
-	inline bool operator < (const Date &otherDate) const
+	inline bool operator < (const ADate &otherDate) const
 	{
 		if(this->year != otherDate.year)
 		{
@@ -60,4 +60,4 @@ private:
 };
 
 
-#endif /* LIBRARIES_DATE_H_ */
+#endif /* LIBRARIES_ADATE_H_ */

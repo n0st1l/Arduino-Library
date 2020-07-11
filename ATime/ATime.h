@@ -1,23 +1,23 @@
 /*
- * Time.h
+ * ATime.h
  *
  *  Created on: 13.07.2015
  *      Author: Administrator
  */
 
-#ifndef LIBRARIES_TIME_H_
-#define LIBRARIES_TIME_H_
+#ifndef LIBRARIES_ATIME_H_
+#define LIBRARIES_ATIME_H_
 
 #include "WString.h"
 
 
-class Time {
+class ATime {
 public:
-	Time();
-	Time(unsigned int p_hour, unsigned int p_minutes, unsigned int p_seconds = 0);
-	virtual ~Time();
+	ATime();
+	ATime(unsigned int p_hour, unsigned int p_minutes, unsigned int p_seconds = 0);
+	virtual ~ATime();
 
-	void setValuesFrom(Time* time);
+	void setValuesFrom(ATime* time);
 
 	bool setTime(unsigned int hour, unsigned int minutes, unsigned int seconds);
 
@@ -32,7 +32,7 @@ public:
 
 	bool isValid();
 
-	long secsTo(const Time *otherTime) const;
+	long secsTo(const ATime *otherTime) const;
 
 	String getTimeString(String format);
 	String getHourString();
@@ -40,7 +40,7 @@ public:
 	String getSecondsString();
 
 	/*Operators*/
-	inline bool operator < (const Time &otherTime) const
+	inline bool operator < (const ATime &otherTime) const
 	{
 		if(this->hour != otherTime.hour)
 		{
@@ -64,4 +64,4 @@ private:
 };
 
 
-#endif /* LIBRARIES_TIME_H_ */
+#endif /* LIBRARIES_ATIME_H_ */

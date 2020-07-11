@@ -1,57 +1,57 @@
 /*
- * Date.cpp
+ * ADate.cpp
  *
  *  Created on: 13.07.2015
  *      Author: Administrator
  */
 
-#include "Date.h"
+#include "ADate.h"
 
-Date::Date()
+ADate::ADate()
 : year(2000),
   month(1),
   day(1)
 {}
 
-Date::Date(unsigned int p_year, unsigned int p_month, unsigned int p_day)
+ADate::ADate(unsigned int p_year, unsigned int p_month, unsigned int p_day)
 : year(p_year),
   month(p_month),
   day(p_day)
 {}
 
-Date::~Date() {
+ADate::~ADate() {
 	// TODO Auto-generated destructor stub
 }
 
-void Date::setValuesFrom(Date* date) {
+void ADate::setValuesFrom(ADate* date) {
 	this->year = date->getYear();
 	this->month = date->getMonth();
 	this->day = date->getDay();
 }
 
-void Date::setYear(unsigned int year) {
+void ADate::setYear(unsigned int year) {
 	this->year = year;
 }
 
-void Date::setMonth(unsigned int month) {
+void ADate::setMonth(unsigned int month) {
 	this->month = month;
 }
 
-void Date::setDay(unsigned int day) {
+void ADate::setDay(unsigned int day) {
 	this->day = day;
 }
 
-String Date::getDateString() {
+String ADate::getDateString() {
 	String tempString;
 	tempString = this->getYearString() + "-" + this->getMonthString() + "-" + this->getDateString();
 	return tempString;
 }
 
-String Date::getYearString() {
+String ADate::getYearString() {
 	return String(this->year);
 }
 
-String Date::getMonthString() {
+String ADate::getMonthString() {
 	String tempString;
 	if(this->month < 10)
 	{
@@ -60,7 +60,7 @@ String Date::getMonthString() {
 	return (tempString + String(this->month));
 }
 
-String Date::getDayString() {
+String ADate::getDayString() {
 	String tempString;
 	if(this->day < 10)
 	{
